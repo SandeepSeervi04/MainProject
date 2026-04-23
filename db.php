@@ -1,12 +1,11 @@
 <?php
-$conn = new mysqli(
-    "sql100.infinityfree.com",
-    "if0_41709568",
-    "sandeep2988",
-    "if0_41709568_quizdb"
-);
+if(session_status() == PHP_SESSION_NONE){
+    session_start();
+}
+
+$conn = new mysqli("localhost", "root", "", "quiz-db");
 
 if($conn->connect_error){
-    die("Database Failed");
+    die("Database Connection Failed: " . $conn->connect_error);
 }
 ?>
